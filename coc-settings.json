@@ -1,0 +1,26 @@
+{
+  "languageserver": {
+    "tsserver": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"],
+      "filetypes": [
+        "typescript",
+        "typescriptreact",
+        "javascript",
+        "javascriptreact"
+      ],
+      "rootPatterns": ["package.json", "tsconfig.json", ".git"]
+    },
+    "lua": {
+      "command": "lua-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["lua"],
+      "rootPatterns": [".git"]
+    }
+  },
+  "suggest.minTriggerInputLength": 2,
+  "suggest.noselect": false,
+  "coc.preferences.formatOnSave": true,
+  "workspace.ignoredFolders": ["node_modules"],
+  "workspace.ignoredFiletypes": ["package-lock.json"]
+}

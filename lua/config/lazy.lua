@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -21,6 +21,21 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+local keyset = vim.keymap.set
+local default_opts = { noremap = true, silent = true }
+
+-- Shortcuts for tab management
+keyset('n', "tt", ":tabnew <cr>", default_opts)
+keyset('n', "tc", ":tabclose <cr>", default_opts)
+keyset('n', "tz", ":tabnext <cr>", default_opts)
+keyset('n', "tr", ":tabprevious <cr>", default_opts)
+
+-- Shortcut for escaping search highlighting
+vim.keymap.set("n", "<Esc>", function()
+  -- Clear search highlight
+  vim.cmd("nohlsearch")
+end, { silent = true })
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -32,4 +47,15 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
+})
+
+require("mini.files").setup()
+require("ibl").setup({
+  scope = { enabled = false },
+  indent = {
+    char = '|',
+    highlight = {
+      "IblIndent"
+    }
+  }
 })
