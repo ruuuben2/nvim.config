@@ -2,10 +2,10 @@ return {
   "nvim-mini/mini.pairs",
   event = "VeryLazy",
   opts = {
-    modes = { 
-	    insert = true, 
-	    command = false, 
-	    terminal = false 
+    modes = {
+      insert = true,
+      command = false,
+      terminal = false
     },
     -- skip autopair when next character is one of these
     skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
