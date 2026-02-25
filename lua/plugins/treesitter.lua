@@ -5,7 +5,7 @@ return {
   config = function()
     local treesitter = require("nvim-treesitter")
     treesitter.setup()
-    treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc', 'query', 'elixir', 'heex', 'javascript', 'typescript', 'html', 'yaml' }
+    treesitter.install { 'lua', 'vim', 'vimdoc', 'javascript', 'typescript', 'html', 'yaml', 'json' }
 
     vim.api.nvim_create_autocmd('FileType', {
       pattern = { 'lua', 'vim', 'vimdoc', 'javascript', 'typescript', 'yaml' },

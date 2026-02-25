@@ -13,8 +13,12 @@ keyset("n", "cd", "<Plug>(coc-definition)", { silent = true })
 keyset("n", "cy", "<Plug>(coc-type-definition)", { silent = true })
 -- keyset("n", "ci", "<Plug>(coc-implementation)", { silent = true })
 keyset("n", "cr", "<Plug>(coc-references)", { silent = true, noremap = true })
+keyset("n", "car", "<Plug>(coc-codeaction-selected)<cr>", { silent = true, noremap = true })
 
 keyset({ "i", "n" }, "<C-Space>", "coc#refresh()", { expr = true, silent = true, noremap = true })
 keyset("n", "cp", ":call CocAction('format') <cr>", { silent = true, noremap = true })
 
-return { 'neoclide/coc.nvim', branch = 'release', }
+return {
+  'neoclide/coc.nvim',
+  branch = 'release',
+}

@@ -3,6 +3,8 @@ local keyset = vim.keymap.set
 keyset("n", "ga", ":Gitsigns stage_hunk <cr>", { silent = true })
 keyset("n", "gb", ":Gitsigns blame_line <cr>", { silent = true })
 keyset("n", "gd", ":Gitsigns preview_hunk <cr>", { silent = true })
+keyset("n", "gn", ":Gitsigns next_hunk <cr>", { silent = true })
+keyset("n", "gp", ":Gitsigns prev_hunk <cr>", { silent = true })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
@@ -41,22 +43,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 return {
   'lewis6991/gitsigns.nvim',
   opts = {
-    signs        = {
-      add = { text = '!+' },
-      change = { text = '!~' },
-      delete = { text = '!x' },
-      topdelete = { text = '!x' },
-      changedelete = { text = '!~' },
-      untracked = { text = '!┆' },
-    },
-    signs_staged = {
-      add = { text = '✓+' },
-      change = { text = '✓~' },
-      delete = { text = '✓x' },
-      topdelete = { text = '✓x' },
-      changedelete = { text = '✓~' },
-      untracked = { text = '✓┆' },
-    },
+    signcolumn = false,
     numhl        = true, -- Toggle with `:Gitsigns toggle_numhl`
   }
 }

@@ -49,7 +49,6 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
-require("mini.files").setup()
 require("ibl").setup({
   scope = { enabled = false },
   indent = {

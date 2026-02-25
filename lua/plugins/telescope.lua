@@ -8,7 +8,20 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
+    'sharkdp/fd',
     -- optional but recommended
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-  }
+  },
+  opts = {
+    defaults = {
+      previewer = true,
+      preview = {
+        highlight = true, -- ensure this is not false
+        treesitter = true, -- use treesitter for syntax in preview
+      }
+    }
+  },
+  config = function ()
+    -- TODO
+  end
 }
